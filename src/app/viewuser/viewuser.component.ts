@@ -8,15 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./viewuser.component.css'],
 })
 export class ViewuserComponent implements OnInit {
-  @Input() userdata: any;
+  userdata: any;
   @Output() show = new EventEmitter();
 
-  constructor(
-    private users: TestService,
-    private routes: Router,
-    private route: ActivatedRoute
-  ) {
-    this.userdata = this.users.data;
+  constructor(private users: TestService,private routes: Router, private route: ActivatedRoute) {
+    
+    this.route.queryParamMap.subscribe((res: any) => {console.log(res)
+    this.userdata = res.params;
+
+    })
   }
 
   ngOnInit(): void {

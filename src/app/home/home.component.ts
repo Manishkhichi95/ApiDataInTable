@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   show: boolean = true;
   person: any;
   filterele: any;
+  personDetails: any;
   constructor(private users: TestService, private route: Router) {
     this.users.getdata(this.i).subscribe((res) => {
       this.userdata = res;
@@ -126,7 +127,17 @@ export class HomeComponent implements OnInit {
   }
   // viewuser
   viewuser(_person: any) {
-    this.users.data = _person;
+    this.personDetails=_person
+    console.log("User Details",this.personDetails)
+    this.route.navigate(['viewUser'],{
+      queryParams:{
+          id:this.personDetails.id,
+          FirstName:this.personDetails.first_name,
+          LastName:this.personDetails.last_name,
+          Email:this.personDetails.email,
+          Avatar:this.personDetails.avatar
+      }
+    })
   }
   ngOnInit(): void {}
 }

@@ -33,7 +33,7 @@
             <td>{{user.first_name}} {{user.last_name}}</td>
             <td>{{user.email}}</td>
             <td><img src="{{user.avatar}}" alt="sorry"></td>
-            <button routerLink="viewUser/{{user.id}}" (click)="viewuser(user)">View</button>
+            <button (click)="viewuser(user)">View</button>
         </tr>
         <button (click)="pre()">Previous</button>
         <button (click)="next()">Next</button>
