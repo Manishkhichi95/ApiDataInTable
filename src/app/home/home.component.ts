@@ -131,11 +131,8 @@ export class HomeComponent implements OnInit {
     console.log("User Details",this.personDetails)
     this.route.navigate(['viewUser'],{
       queryParams:{
-          id:this.personDetails.id,
-          FirstName:this.personDetails.first_name,
-          LastName:this.personDetails.last_name,
-          Email:this.personDetails.email,
-          Avatar:this.personDetails.avatar
+          page:this.i,
+          id:this.personDetails.id
       }
     })
   }
