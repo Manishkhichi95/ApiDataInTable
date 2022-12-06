@@ -5,11 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TestService {
-  url= this.http.get('https://reqres.in/api/users?page');
+data:any;
 
-  constructor(private http: HttpClient) { }
+  url= this.http.get('https://reqres.in/api/users?page');
+  constructor(private http: HttpClient) {
+
+   }
   getdata(count:any){
   return this.http.get('https://reqres.in/api/users?page='+count);
-  
 }
+// person(){
+  
+//    console.log("data:::::::::::",this.data)
+// }
+
 }
