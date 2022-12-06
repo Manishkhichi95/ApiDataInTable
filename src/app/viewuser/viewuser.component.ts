@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ViewuserComponent implements OnInit {
   userdata: any;
   id: any;
-  page: any;
+  page: number = 0;
   constructor(private users: TestService, private routes: Router, private route: ActivatedRoute, private http: HttpClient) {
 
     this.route.queryParamMap.subscribe((res: any) => {
@@ -22,14 +22,13 @@ export class ViewuserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     this.http.get('https://reqres.in/api/users?page=' + this.page).subscribe((res: any) => {
-      // console.log("response", res)
+      console.log("response", res)
       res.data.forEach((element: any) => {
-        // console.log("elem ID", element)
+        console.log("elem ID", element)
         if (element.id == this.id && res.page == this.page) {
           this.userdata = element
-          // console.log("userdata", this.userdata)
+          console.log("userdata", this.userdata)
         }
       })
     })
