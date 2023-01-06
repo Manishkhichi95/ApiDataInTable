@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   i: number = 1;
   e: any;
   filterdata: any;
-  id: any;
+  id: number = 0;
   show: boolean = true;
   person: any;
   filterele: any;
@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     this.users.getdata(this.i).subscribe((res) => {
       this.userdata = res;
       this.userdatas = this.userdata.data;
-      // console.log(this.userdatas);
     });
   }
   refresh() {
@@ -52,14 +51,11 @@ export class HomeComponent implements OnInit {
     });
   }
   getSearchVal(e: any) {
-    // console.log(e.target.value);
-    // console.log(this.userdatas)\
     let eValue = e.target.value.toUpperCase();
     if (e.target.value !== '') {
       let user = this.userdatas
         .filter((ele: any) => ele.first_name.toUpperCase().startsWith(eValue))
         .map((res: any) => res);
-      // console.log("USER",user)
       this.userdatas = [];
       this.userdatas = user;
     } else {
@@ -127,14 +123,14 @@ export class HomeComponent implements OnInit {
   }
   // viewuser
   viewuser(_person: any) {
-    this.personDetails=_person
-    console.log("User Details",this.personDetails)
-    this.route.navigate(['viewUser'],{
-      queryParams:{
-          page:this.i,
-          id:this.personDetails.id
+    this.personDetails = _person
+    console.log("User Details", this.personDetails)
+    this.route.navigate(['viewUser'], {
+      queryParams: {
+        page: this.i,
+        id: this.personDetails.id
       }
     })
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

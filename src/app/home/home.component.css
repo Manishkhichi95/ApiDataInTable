@@ -1,20 +1,23 @@
-table,
-img,
-td,
-th {
+table,img,td,tr,th {
   border: 2px solid black;
 }
 img {
-  position: relative;
   height: 100px;
   width: 100px;
 }
-tbody {
-  position: relative;
-  left: 75px;
-}
+
 table {
-  border-collapse: 2px solid black;
   width: 90vw;
   height: 50vh;
+}
+td{
+  text-align: center;
+}
+.nxtBtn{
+position:relative;
+left:82.73vw
+}
+
+div>span {
+  margin-left: 34vw;
 }

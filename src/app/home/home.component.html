@@ -1,5 +1,7 @@
 <div>
-    <span>Enter Name</span><input type="search" placeholder="Search" (keyup)='getSearchVal($event)'>
+    
+        <span>Enter Id/Name</span><input type="search" placeholder="Search" (keyup)='getSearchVal($event)'>
+    
     <Button (click)="refresh()">Refresh</Button>
     <table>
         <tr>
@@ -33,9 +35,9 @@
             <td>{{user.first_name}} {{user.last_name}}</td>
             <td>{{user.email}}</td>
             <td><img src="{{user.avatar}}" alt="sorry"></td>
-            <button (click)="viewuser(user)">View</button>
+            <td><button (click)="viewuser(user)">View</button></td>
         </tr>
-        <button (click)="pre()">Previous</button>
-        <button (click)="next()">Next</button>
     </table>
+    <button (click)="pre()" class="preBtn">Previous</button>
+    <button (click)="next()" class="nxtBtn">Next</button>
 </div>

@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./viewuser.component.css'],
 })
 export class ViewuserComponent implements OnInit {
-  userdata: any;
-  id: any;
+  userdata: any = {};
+  id: number = 0;
   page: number = 0;
   constructor(private users: TestService, private routes: Router, private route: ActivatedRoute, private http: HttpClient) {
 
